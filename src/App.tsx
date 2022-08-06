@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
+import st from './App.module.css'
+import { StarRating } from "./rating/star-rating";
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+export const App = () => {
+    return (
+        <div className={st.container}>
+            <StarRating/>
+        </div>
+    );
 }
 
-export default App;
