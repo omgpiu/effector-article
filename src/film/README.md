@@ -1,11 +1,37 @@
-# Effects,Samples,Gate,Restore and adding logic in stores
+# Effects, Samples ,Gate , Restore and adding logic in stores
+
+1) [Gate](https://effector.dev/docs/api/effector-vue/gate/)   
+2) [Sample](https://effector.dev/docs/api/effector/sample)
+3) [Effect](https://effector.dev/docs/api/effector/effect)
+4) [Restore](https://effector.dev/docs/api/effector/restore)
+5) [Combine](https://effector.dev/docs/api/effector/combine)
 
 In this part I will show how can we solve some issues with only effector staff and easiest way with Patronum lib.
 
+## Effect
 
+Effect is a container for async function. Mostly it uses for fetching data. 
+WHen you make an effect Best Practice for naming is Fx ending - it shows that's an effect, not event.
+There is a few methods you must know. 
+
+1) getFilmPosterFx.done 
+2) getFilmPosterFx.doneData
+3) getFilmPosterFx.fail
+4) getFilmPosterFx.pending 
+5) etc.
+
+All these methods return some data. For example - doneData returns result, done returns arguments which you passed in effect and result, pending returns true/false, fail again returns arguments and error.
+
+```ts
+export const getFilmPosterFx = createEffect<void, FilmPosterRaw>(async () => {
+    const req = await fetch(POSTER_BASE)
+    return req.json()
+})
+
+```
 ## Use Gate instead of useEffect
 
-Let's have a look for a new thing - this is a [Gate](https://effector.dev/docs/api/effector-vue/gate/)
+Let's have a look for a new thing - this is a [Gate](https://effector.dev/docs/api/effector-vue/gate/).
 This is very useful instrument for subscribing  on mounting/unmounting component. With Gate don't need to use useEffect for subscribe to mount/unmount components.
 The result we don't need to make a new event and export it in View.
 
@@ -35,7 +61,7 @@ useGate(SomeGate)
 
 And now we have methods SomeGate.open/SomeGate.close/SomeGate.status/SomeGate.state.
 
-### Connect Gate and Sample
+### Connect Gate and [Sample]()
 As you see below it works as:
 When FilmGate.open (when our page mounts), we run effects getFilmDataFx and getFilmPosterFx. If you don't need to pass arguments,or your arguments same, you can use Array with effects to run them.
 
@@ -115,6 +141,36 @@ export const $film = combine($filmRawData, $posterRawData, (film, poster) => {
 
 ```
 
+### All data what you pass by event, or get after effect finished will provide automatically.
+
+1) We create an event and an effect.
+2) Later we somewhere call myEvent with payload - some id as string.
+3) We call myEvent and this action will trigger clock in Sample.
+4) Clock triggers target, pass payload from myEvent to myEffectFx and run myEffectFx.
+
+```ts
+import { createEvent, sample } from "effector";
+
+const myEvent = createEvent<string>()
+const myEffectFx = createEffect(async (id:string) => {
+    const req = await fetch(`some.web.site/${id}`)
+    return req.json()
+})
+
+myEvent('card_id-4')
+
+sample({
+    clock: myEvent,
+    target: myEffectFx
+})
+
+
+
+```
+
+
+
+
 ## Patronum Game - [Pending](https://github.com/effector/patronum#pending), [combineEvents](https://github.com/effector/patronum#combineevents)
 
 Oh  shit, here we go again!
@@ -134,7 +190,7 @@ How it works? Easy to understand step by step
 8) Our target is a store $film
 9) We have data in our $film store.
 
-NOTE: combineEvents fires clock only after all effects are fulfilled with doneData method (if it will be fail, effect has method fail), it means no need to  check do we have data or no.
+NOTE: combineEvents fires clock only after all effects are fulfilled with doneData method (if it will be fail, effect has method fail), it means no need to  check do we have data or not.
 
 ```ts
 export const $film = createStore<Film | null>(null)
