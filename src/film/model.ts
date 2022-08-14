@@ -30,7 +30,8 @@ export const $film = combine($filmRawData, $posterRawData, (film, poster) => {
             year: film.Year,
             popularity: posterByTitle.popularity,
             language: film.Language,
-            overview: posterByTitle.overview
+            overview: posterByTitle.overview,
+            id:posterByTitle.id
         }
     }
     return null

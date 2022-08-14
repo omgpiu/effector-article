@@ -1,0 +1,34 @@
+.container {
+    text-align: center;
+
+}
+.info {
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 50px;
+    width: 400px;
+    margin: 0 auto;
+}
+.default {
+    background: lightblue;
+}
+
+.awful {
+    background: rgb(212, 0, 28);
+}
+
+.bad {
+    background: rgb(255, 93, 26);;
+}
+
+.poor {
+    background: rgb(212, 171, 42);;
+}
+
+.good {
+    background: rgb(240, 247, 212);;
+}
+
+.marvelous {
+    background: rgb(112, 204, 54);;
+}
