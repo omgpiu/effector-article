@@ -7,23 +7,21 @@ Main libs:
 ``2) effector/react - connecting to react``  
 ``3) patronum - usefull helper``
 
-
 I decided to make this tutorial step by step. You can find small parts in project branches.
 In last branch it will be a completed feature with conditions/data fetching/ splitting events.
 
+### Navigate
 
+1) [LessonOne](src/LessonOne/README.md)
+2) [LessonTwo](src/LessonTwo/README.md)
+3) [LessonThree](src/LessonThree/README.md)
+3) [LessonFor](src/LessonFour/README.md)
 
-### BRANCHES
+### Branches
+
 1) **effector/events-store** - you can find how to start with easy stores and events in effector.
 2) **effector/effects-api** - fetching and handlering data.
 3) **effector/samples** - sending data/ split code.
 4) **effector/process** - how can we handle process for page.
 
-
-
-# A small tutorial for effector 
-
-1) [Rating-component](src/LessonOne/README.md)
-2) [Film-component](src/LessonTwo/README.md)
-3) [Form-component](src/LessonThree/README.md)
 
