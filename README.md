@@ -19,9 +19,9 @@ In last branch it will be a completed feature with conditions/data fetching/ spl
 
 ### Branches
 
-1) **effector/events-store** - you can find how to start with easy stores and events in effector.
-2) **effector/effects-api** - fetching and handlering data.
-3) **effector/samples** - sending data/ split code.
-4) **effector/process** - how can we handle process for page.
+1) **effector/lesson-one-events-store** - you can find how to start with easy stores and events in effector.
+2) **effector/lesson-two-effects-api** - fetching and handlering data.
+3) **effector/lesson-three-samples** - sending data/ split code.
+4) **effector/lesson-four-process** - how can we handle process for page.
 
 
