@@ -1,7 +1,7 @@
 import React from 'react';
 import st from './App.module.css'
-import { StarRating } from "./rating/star-rating";
-import { Film } from "./film/film";
+import { StarRating } from "./LessonOne/star-rating";
+import { Film } from "./LessonTwo/film";
 
 export const App = () => {
     return (

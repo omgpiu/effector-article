@@ -1,11 +1,5 @@
 # Effects, Samples ,Gate , Restore and adding logic in stores
 
-1) [Gate](https://effector.dev/docs/api/effector-vue/gate/)   
-2) [Sample](https://effector.dev/docs/api/effector/sample)
-3) [Effect](https://effector.dev/docs/api/effector/effect)
-4) [Restore](https://effector.dev/docs/api/effector/restore)
-5) [Combine](https://effector.dev/docs/api/effector/combine)
-
 In this part I will show how can we solve some issues with only effector staff and easiest way with Patronum lib.
 
 ## Effect
