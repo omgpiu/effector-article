@@ -1,24 +1,10 @@
-import { combine, restore, sample } from "effector";
-import { pending } from "patronum";
-import { createGate } from "effector-react";
+import { combine, restore } from "effector";
 import { getFilmDataFx, getFilmPosterFx } from "../api/model";
 import { FilmPosterRaw, FilmRaw } from "../api/types";
 
-//gate
-export const FilmGate = createGate('FilmGate')
-
 //events
-
 const $filmRawData = restore<FilmRaw>(getFilmDataFx, null)
 const $posterRawData = restore<FilmPosterRaw>(getFilmPosterFx, null)
-
-//actions
-
-sample({
-    clock: FilmGate.open,
-    target: [getFilmDataFx, getFilmPosterFx]
-})
-
 
 export const $film = combine($filmRawData, $posterRawData, (film, poster) => {
     if (film && poster) {
@@ -36,13 +22,6 @@ export const $film = combine($filmRawData, $posterRawData, (film, poster) => {
     }
     return null
 })
-
-//with patronum
-
-export const $isPending = pending(
-    {effects: [getFilmDataFx, getFilmPosterFx]}
-)
-
 
 // export const $film = createStore<Film | null>(null)
 //

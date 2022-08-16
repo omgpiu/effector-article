@@ -8,7 +8,7 @@ export const SEND_ERROR_DATA: Badge = {
 
 export const BADGE_INFO: Record<RatingValue, Badge> = {
     0: {
-        title: 'Give as feedback about this movie,please',
+        title: 'Rate and leave feedback',
         color: Color.DEFAULT
     },
     1: {
@@ -16,7 +16,7 @@ export const BADGE_INFO: Record<RatingValue, Badge> = {
         color: Color.AWFUL
     },
     2: {
-        title: 'I will not suggest THIS',
+        title: 'So bad',
         color: Color.BAD
     },
     3: {
@@ -24,7 +24,7 @@ export const BADGE_INFO: Record<RatingValue, Badge> = {
         color: Color.POOR
     },
     4: {
-        title: 'Wow, I will recommend this movie!',
+        title: 'Not bad',
         color: Color.GOOD,
     },
     5: {

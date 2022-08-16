@@ -1,11 +1,10 @@
 import { createEvent, createStore } from "effector";
-import { debug } from "patronum";
 import { RatingValue } from "../types";
 
 //events
 export const setRating = createEvent<RatingValue>('setRating')
 export const setHover = createEvent<RatingValue>('setHover')
-export const resetRatingStores = createEvent()
+export const resetRatingStores = createEvent('resetRatingStores')
 
 
 //stores

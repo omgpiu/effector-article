@@ -1,21 +1,26 @@
 import { createEvent, createStore, sample, split } from "effector";
-import { sendFeedbackFx } from "../api/model";
-import { $hover, $rating, resetRatingStores } from "../rating/model";
-import { $film } from "../film/model";
+import { sendFeedbackFx } from "../api";
+import { $hover, $rating, resetRatingStores } from "../LessonOne";
+import { $film } from "../LessonTwo";
 import { BADGE_INFO, SEND_ERROR_DATA } from "./constants";
 
+
 //events
-export const setFeedbackText = createEvent<string>()
-export const sendFeedback = createEvent()
+export const setFeedbackText = createEvent<string>('setFeedbackText')
+export const sendFeedback = createEvent('sendFeedback')
 
 //local events
-const sendSuccess = createEvent();
-const sendFail = createEvent();
-const resetFormStores = createEvent();
+const sendSuccess = createEvent('sendSuccess');
+const sendFail = createEvent('sendFail');
+const resetFormStores = createEvent('resetFormStores');
 
 //stores
-export const $feedbackText = createStore('').reset(resetFormStores)
-export const $badge = createStore(BADGE_INFO[0]).reset(resetFormStores)
+export const $feedbackText = createStore('', {
+    name: '$feedbackText'
+}).reset(resetFormStores)
+export const $badge = createStore(BADGE_INFO[0], {
+    name: '$badge'
+}).reset(resetFormStores)
 
 //connection
 $feedbackText.on(setFeedbackText, (_, text) => text);
@@ -79,8 +84,12 @@ sample({
 })
 
 sample({
-    clock: sendFeedback,
+    clock: sendFeedbackFx,
     target: [resetRatingStores, resetFormStores]
 })
+
+
+
+
 
 

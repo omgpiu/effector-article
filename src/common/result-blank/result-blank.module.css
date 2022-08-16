@@ -1,0 +1,18 @@
+.container {
+    margin: 50px auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.btn {
+    width: 256px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.btn:hover {
+    background-color: orange;
+}
+
+
+

@@ -1,9 +1,10 @@
-import st from "./Form.module.css";
-import { Film } from "../film/film";
-import { StarRating } from "../rating/star-rating";
+import st from "./form.module.css";
+import { Film } from "../LessonTwo/film";
+import { StarRating } from "../LessonOne/star-rating";
 import React, { ChangeEvent, FormEvent } from "react";
 import { $badge, $feedbackText, sendFeedback, setFeedbackText } from "./model";
 import { useStore } from "effector-react";
+import { Button } from "../common";
 
 export const Form = () => {
     const value = useStore($feedbackText)
@@ -26,7 +27,7 @@ export const Form = () => {
                 {badge.title}
             </div>
             <textarea onChange={onChangeHandler} value={value}/>
-            <button type='submit'>Send Feedback</button>
+            <Button title='Submit'/>
         </form>
     );
 }
