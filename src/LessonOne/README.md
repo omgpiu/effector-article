@@ -1,8 +1,5 @@
 # Events and stores in simple way
 
-[Events](https://effector.dev/docs/api/effector/event)  
-[Stores](https://effector.dev/docs/api/effector/store)
-
 I created a small rating component to show, how we can work with events and stores.   
 I know, that's an overhead to use effector for UI logic. But I hope these examples will help to easy start with effector. 
 
@@ -42,14 +39,19 @@ When we call our event setHover with some payload, our store will change. You ca
 
 
 ```ts
-$hover.on(setHover,(_,rating)=>rating)
+$hover.on(setHover, (_, rating) => rating)
 
 ```
 
 ### Some tips
 
-If you check model.ts you'll find functions debug with stores and events. Try to change rating and check it out in your console. 
+If you check model.ts you'll find functions debug with stores and events. Try to change rating and check it out in your
+console.
 
+### What we've done?
 
-### Congratulation, in this part we created a store and connect an event for this store. Now, you can start this project and check, how it works!
+1) Created a store
+2) Connect event with this store
+
+### Congratulation. Now, you can start this project and check, how it works!
 
