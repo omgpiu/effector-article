@@ -1,10 +1,29 @@
 import React from 'react';
-import './App.css';
+import { Form } from "./LessonThree/Form";
+import { $appProcess, AppGate, AppProcess } from "./LessonFour/model";
+import { useGate, useStore } from "effector-react";
+import { Loader, ResultBlank } from "./common";
 
-function App() {
-  return (
-    <div />
-  );
+const render = (state: AppProcess) => {
+    const map = {
+        [AppProcess.IDLE]: <Form/>,
+        [AppProcess.SUCCESS]: <ResultBlank type={AppProcess.SUCCESS}/>,
+        [AppProcess.FAIL]: <ResultBlank type={AppProcess.FAIL}/>,
+        [AppProcess.LOADING]: <Loader/>,
+    }
+
+    return map[state]
 }
 
-export default App;
+
+export const App = () => {
+    useGate(AppGate)
+    const state = useStore($appProcess)
+    return (
+        <>
+            {render(state)}
+        </>
+
+    )
+}
+

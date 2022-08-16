@@ -1,0 +1,52 @@
+.container {
+    text-align: center;
+    width: 320px;
+    margin: 10px auto;
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container textarea {
+    resize: none;
+    width: 256px;
+}
+
+.container p {
+    margin: 0;
+    padding: 0 0 2px;
+    font-weight: bold;
+}
+
+.info {
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 30px;
+    width: 256px;
+    margin: 0 auto;
+}
+.default {
+    background: lightgray;
+}
+
+.awful {
+    background: rgb(212, 0, 28);
+}
+
+.bad {
+    background: rgb(255, 93, 26);;
+}
+
+.poor {
+    background: rgb(212, 171, 42);;
+}
+
+.good {
+    background: lightgreen;;
+}
+
+.marvelous {
+    background: rgb(112, 204, 54);;
+}
