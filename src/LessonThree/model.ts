@@ -1,7 +1,7 @@
 import { createEvent, createStore, sample, split } from "effector";
 import { sendFeedbackFx } from "../api/model";
-import { $hover, $rating, resetRatingStores } from "../rating/model";
-import { $film } from "../film/model";
+import { $hover, $rating, resetRatingStores } from "../LessonOne/model";
+import { $film } from "../LessonTwo/model";
 import { BADGE_INFO, SEND_ERROR_DATA } from "./constants";
 
 //events

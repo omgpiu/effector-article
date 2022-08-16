@@ -1,9 +1,5 @@
 # Sending data, split events
 
-[Split](https://effector.dev/docs/api/effector/split/)  
-[Reset Stores](https://effector.dev/docs/api/effector/store#resettriggersarray)
-[Effect](https://effector.dev/docs/api/effector/createEffect)
-
 ## Practice makes perfect
 ### Task: Create a function to send data so API.
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form} from "./form/Form";
+import {Form} from "./LessonThree/Form";
 
 export const App = () => {
     return (

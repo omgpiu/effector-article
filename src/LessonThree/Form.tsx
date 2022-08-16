@@ -1,6 +1,6 @@
 import st from "./Form.module.css";
-import { Film } from "../film/film";
-import { StarRating } from "../rating/star-rating";
+import { Film } from "../LessonTwo/film";
+import { StarRating } from "../LessonOne/star-rating";
 import React, { ChangeEvent, FormEvent } from "react";
 import { $badge, $feedbackText, sendFeedback, setFeedbackText } from "./model";
 import { useStore } from "effector-react";
