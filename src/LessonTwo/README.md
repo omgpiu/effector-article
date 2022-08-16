@@ -134,7 +134,6 @@ export const $film = combine($filmRawData, $posterRawData, (film, poster) => {
 
 
 ```
-
 ### All data what you pass by event, or get after effect finished will provide automatically.
 
 1) We create an event and an effect.
@@ -161,10 +160,6 @@ sample({
 
 
 ```
-
-
-
-
 ## Patronum Game - [Pending](https://github.com/effector/patronum#pending), [combineEvents](https://github.com/effector/patronum#combineevents)
 
 Oh  shit, here we go again!
@@ -212,7 +207,4 @@ sample({
     },
     target: $film,
 })
-
-
-
 ```
