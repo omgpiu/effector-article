@@ -1,5 +1,9 @@
 # Sending data, split events
 
+### Before we start
+
+There is a few things you better look throw in effector and patronum docs :
+
 [Split](https://effector.dev/docs/api/effector/split/)  
 [Reset Stores](https://effector.dev/docs/api/effector/store#resettriggersarray)
 [Effect](https://effector.dev/docs/api/effector/createEffect)

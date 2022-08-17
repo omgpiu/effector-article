@@ -1,7 +1,11 @@
 # Events and stores in simple way
 
-[Events](https://effector.dev/docs/api/effector/event)  
-[Stores](https://effector.dev/docs/api/effector/store)
+### Before we start
+
+There is a few things you better look throw in effector and patronum docs :
+
+1) [Events](https://effector.dev/docs/api/effector/event)
+2) [Stores](https://effector.dev/docs/api/effector/store)
 
 I created a small rating component to show, how we can work with events and stores.   
 I know, that's an overhead to use effector for UI logic. But I hope these examples will help to easy start with effector. 
