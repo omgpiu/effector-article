@@ -81,6 +81,3 @@ It's much easier to use [debug](https://github.com/effector/patronum/tree/main/s
 3) Connect the event with the store.
 
 ### Congratulation. Now, you can start this project and check, how it works!
-
-Don't blame me about css, >_<
-
