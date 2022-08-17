@@ -45,7 +45,7 @@ export const setHoveredRating = createEvent<number>()
 
 ### Third step
 
-This is a magic time - connect our event to store.
+This is magic time - connect our event to store.
 Let's try to understand - what's going on here?
 
 1) Connected our $hover (store) with setHover (event), and when we fire event our store will change.
