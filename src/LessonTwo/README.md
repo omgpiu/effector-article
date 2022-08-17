@@ -1,6 +1,6 @@
 # Effects, Samples ,Gate , Restore and adding logic in stores
 
-### Before we start
+## Before we start
 
 There is a few things you better look throw in effector and patronum docs :
 
