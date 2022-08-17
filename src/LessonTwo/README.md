@@ -1,6 +1,10 @@
 # Effects, Samples ,Gate , Restore and adding logic in stores
 
-1) [Gate](https://effector.dev/docs/api/effector-vue/gate/)   
+### Before we start
+
+There is a few things you better look throw in effector and patronum docs :
+
+1) [Gate](https://effector.dev/docs/api/effector-vue/gate/)
 2) [Sample](https://effector.dev/docs/api/effector/sample)
 3) [Effect](https://effector.dev/docs/api/effector/effect)
 4) [Restore](https://effector.dev/docs/api/effector/restore)
