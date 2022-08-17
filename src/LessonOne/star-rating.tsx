@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import st from './rating.module.css'
-import { $hover, $rating, setHover, setRating } from "./model";
+import { $hover, $rating, setHoveredRating, setRating } from "./model";
 import { RatingValue } from "../types";
 
 export const StarRating = () => {
@@ -17,8 +17,8 @@ export const StarRating = () => {
                         key={index}
                         className={index <= (hover || rating) ? st.on : st.off}
                         onClick={() => setRating(index as RatingValue)}
-                        onMouseEnter={() => setHover(index as RatingValue)}
-                        onMouseLeave={() => setHover(rating)}
+                        onMouseEnter={() => setHoveredRating(index as RatingValue)}
+                        onMouseLeave={() => setHoveredRating(rating)}
                     >
                         <span className="star">&#9733;</span>
                     </button>
