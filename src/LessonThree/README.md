@@ -9,7 +9,7 @@ There is a few things you better look throw in effector and patronum docs :
 [Effect](https://effector.dev/docs/api/effector/createEffect)
 
 ## Practice makes perfect
-### Task: Create a function to send data so API.
+### Task: Create a function to send data to API.
 
 You know this guy - effect, and in this part we are going to use it for some dirty thing as sending data. Mock with
 Promise
