@@ -79,7 +79,7 @@ sample({
 })
 
 sample({
-    clock: sendFeedback,
+    clock: sendFeedbackFx,
     target: [resetRatingStores, resetFormStores]
 })
 

@@ -4,9 +4,9 @@
 
 There are few things you better look throw in effector and patronum docs :
 
-[Events](https://effector.dev/docs/api/effector/event)  
-[Stores](https://effector.dev/docs/api/effector/store)   
-[Patronum](https://github.com/effector/patronum)
+1) [Events](https://effector.dev/docs/api/effector/event)
+2) [Stores](https://effector.dev/docs/api/effector/store)
+3) [Patronum](https://github.com/effector/patronum)
 
 Let's start our journey with a small component.
 Usually for similar logic you better use hooks, but for learning we are going to use effector instead.
