@@ -32,7 +32,7 @@ Simply speaking, event is a function with or without payload.
 TS will help us to understand do we need payload or not. I gave a payload as a number and now, when I'm going to use this event, it's waiting for number payload.
 
 ```ts
-export const setHover = createEvent<number>()
+export const setHoveredRating = createEvent<number>()
 
 ```
 
@@ -47,7 +47,7 @@ When we call our event setHover with some payload, our store will change. You ca
 
 
 ```ts
-$hover.on(setHover, (_, rating) => rating)
+$hover.on(setHoveredRating, (_, rating) => rating)
 
 ```
 

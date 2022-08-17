@@ -3,7 +3,7 @@ import { debug } from "patronum";
 
 //events
 export const setRating = createEvent<number>('setRating')
-export const setHover = createEvent<number>('setHover')
+export const setHoveredRating = createEvent<number>('setHoveredRating')
 
 //stores
 export const $hover = createStore<number>(0,{
@@ -13,11 +13,11 @@ export const $rating = createStore<number>(0,{
     name:'rating'
 })
 
-$hover.on(setHover,(_,rating)=>rating)
+$hover.on(setHoveredRating,(_, rating)=>rating)
 $rating.on(setRating,(_,rating)=>rating)
 
 debug($hover)
 debug($rating)
 
-debug(setHover)
+debug(setHoveredRating)
 debug(setRating)
