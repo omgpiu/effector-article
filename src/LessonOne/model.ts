@@ -1,5 +1,4 @@
 import { createEvent, createStore } from "effector";
-import { debug } from "patronum";
 import { RatingValue } from "../types";
 
 //events
