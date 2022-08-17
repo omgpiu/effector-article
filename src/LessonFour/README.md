@@ -11,7 +11,7 @@ Last part that I want to share is how to make process
 Let's find out how it works. 
 
 1) Create store $appProcess with defaultValue as Loading state
-2) 1st .on -> when all events in combined events triggers store change value to IDLE
+2) 1st .on when all events in combined events triggers store change value to IDLE
 3) 2nd .on when sendFeedbackFx triggers store changes to LOADING
 4) 3rd .on when  sendFeedbackFx returns value store changes to SUCCESS
 5) 4th if sendFeedbackFx,getFilmDataFx,getFilmPosterFx fails stores changes to FAIL
