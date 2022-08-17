@@ -9,24 +9,18 @@ export const Film = () => {
     if (isLoading) return <div>Loading....</div>
     if (!film) return null
     return <div>
-        <div>
-            {film.title}
-        </div>
-
+        {film.title}
         <div>
             <img src={film.img} alt={film.title}/>
         </div>
-        <div>
-            {film.year}
-        </div>
-        <div>
-            {film.language}
-        </div>
-        <div>
-            {film.overview}
-        </div>
-        <div>
+        <p>Year:</p>
+        <span>{film.year}</span>
+        <p>Languages:</p>
+        <span>{film.language}</span>
+        <p>Overview:</p>
+        <span>{film.overview}</span>
+        <p>
             {film.popularity}
-        </div>
+        </p>
     </div>
 }
