@@ -8,7 +8,7 @@ export const SEND_ERROR_DATA: Badge = {
 
 export const BADGE_INFO: Record<RatingValue, Badge> = {
     0: {
-        title: 'Give as feedback about this movie,please',
+        title: 'Give as feedback',
         color: Color.DEFAULT
     },
     1: {
