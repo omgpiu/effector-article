@@ -1,5 +1,13 @@
 # Events and stores in simple way
 
+## Before we start
+
+There are two things you better look throw in effector and patronum docs :
+
+[Events](https://effector.dev/docs/api/effector/event)  
+[Stores](https://effector.dev/docs/api/effector/store)   
+[Patronum](https://github.com/effector/patronum)
+
 I created a small rating component to show, how we can work with events and stores.   
 I know, that's an overhead to use effector for UI logic. But I hope these examples will help to easy start with effector. 
 
