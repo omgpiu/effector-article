@@ -1,5 +1,6 @@
 # Second lesson
 
+
 ## Before we start
 
 There are two things you better look throw in effector and patronum docs :
