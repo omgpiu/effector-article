@@ -3,7 +3,7 @@ import { RatingValue } from "../types";
 
 //events
 export const setRating = createEvent<RatingValue>('setRating')
-export const setHoveredRating = createEvent<RatingValue>('setHoveredRating')
+export const setHoveredRating = createEvent<RatingValue>('setHovered')
 export const resetRatingStores = createEvent('resetRatingStores')
 
 
@@ -15,6 +15,6 @@ export const $rating = createStore<RatingValue>(0,{
     name:'rating'
 }).reset(resetRatingStores)
 
-$hover.on(setHoveredRating,(_,rating)=>rating)
+$hover.on(setHoveredRating,(_, rating)=>rating)
 $rating.on(setRating,(_,rating)=>rating)
 

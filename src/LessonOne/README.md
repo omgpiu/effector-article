@@ -4,31 +4,27 @@
 
 There are few things you better look throw in effector and patronum docs :
 
-[Events](https://effector.dev/docs/api/effector/event)  
-[Stores](https://effector.dev/docs/api/effector/store)   
-[Patronum](https://github.com/effector/patronum)
+1) [Events](https://effector.dev/docs/api/effector/event)  
+2) [Stores](https://effector.dev/docs/api/effector/store)   
+3) [Patronum](https://github.com/effector/patronum)
 
 Let's start our journey with a small component.
 Usually for similar logic you better use hooks, but for learning we are going to use effector instead.
 
-### Task:
-
-1) Create a component with stars.
-2) Stars must change their color when we hover them.
-3) Stars must change their color according chosen rating.
+I created a small rating component to show, how we can work with events and stores.   
+I know, that's an overhead to use effector for UI logic. But I hope these examples will help to easy start with effector. 
 
 ### First step
 
-1) Here we create a store by [createStore](https://effector.dev/docs/api/effector/createStore) for hoveredRating and
-   give an initial value for it.
-2) Best practice is to start store's name with $ sign.
+1) Here we createStore for hover and give initial value for it.
+2) Best practice is to start store's name with  $ sign.
 3) We can add types for store value or store shape.
-4) I add config with field name for easy debug. We can use useful lib - [Patronum](https://github.com/effector/patronum)
-   for debug our stores/events/etc.
+4) I add config with field name for easy debug. We can use usefully lib - [Patronum](https://github.com/effector/patronum)  for debug our stores/events/etc.
+
 
 ```ts
-export const $hover = createStore<number>(0, {
-    name: 'hover'
+export const $hover = createStore<number>(0,{
+    name:'hover'
 })
 ```
 
@@ -37,18 +33,22 @@ export const $hover = createStore<number>(0, {
 Now it's time to create an event by [createEvent](https://effector.dev/docs/api/effector/createEvent).   
 Simply speaking, event is a function with or without payload. Events work as triggers to start chain of actions.
 TS will help us to understand do we need payload or not. I gave a payload as a number and now, when I'm going to use
-this event, it's waiting for number payload.
+this event, it's waiting for payload as a number.
 
 ```ts
-export const setHoveredRating = createEvent<number>()
+export const setHover = createEvent<number>()
+
 ```
 
 ### Third step
-
-This is magic time - connect our event to store.
+This is a magic time - connect our event to store.
 Let's try to understand - what's going on here?
 
-1) Connected our $hover (store) with setHover (event), and when we fire event our store will change.
+```ts
+$hover.on(setHoveredRating, (_, rating) => rating)
+```
+
+1) Connected our $hover (store) with setHoveredRating (event), and when we fire event our store will change.
 2) put callback as second argument in .on method.
 
 This callback has two arguments - state and event payload. If we don't need store data, we name first argument as
@@ -64,10 +64,6 @@ our callback MUST BE A PURE FUNCTION.
    not UPDATE.
 2) If you pass undefined to store, store will NOT change and will not UPDATE.
 
-```ts
-$hover.on(setHoveredRating, (_, rating) => rating)
-```
-
 #### Some tips with patronum lib
 
 If you check model.ts you'll find functions debug with stores and events. Try to change rating and check it out in your
@@ -81,4 +77,7 @@ It's much easier to use [debug](https://github.com/effector/patronum/tree/main/s
 3) Connect the event with the store.
 
 ### Congratulation. Now, you can start this project and check, how it works!
+
+Don't blame me about css, >_<
+
 
