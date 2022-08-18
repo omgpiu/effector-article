@@ -37,7 +37,7 @@ export const $hover = createStore<number>(0, {
 Now it's time to create an event by [createEvent](https://effector.dev/docs/api/effector/createEvent).   
 Simply speaking, event is a function with or without payload. Events work as triggers to start chain of actions.
 TS will help us to understand do we need payload or not. I gave a payload as a number and now, when I'm going to use
-this event, it's waiting for number payload.
+this event, it's waiting for payload as a number.
 
 ```ts
 export const setHoveredRating = createEvent<number>()
