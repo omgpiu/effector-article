@@ -48,7 +48,11 @@ export const setHoveredRating = createEvent<number>()
 This is magic time - connect our event to store.
 Let's try to understand - what's going on here?
 
-1) Connected our $hover (store) with setHover (event), and when we fire event our store will change.
+```ts
+$hover.on(setHoveredRating, (_, rating) => rating)
+```
+
+1) Connected our $hover (store) with setHoveredRating (event), and when we fire event our store will change.
 2) put callback as second argument in .on method.
 
 This callback has two arguments - state and event payload. If we don't need store data, we name first argument as
@@ -63,10 +67,6 @@ our callback MUST BE A PURE FUNCTION.
    will
    not UPDATE.
 2) If you pass undefined to store, store will NOT change and will not UPDATE.
-
-```ts
-$hover.on(setHoveredRating, (_, rating) => rating)
-```
 
 #### Some tips with patronum lib
 
