@@ -1,4 +1,6 @@
-# A small effector tutorial 
+# A small effector tutorial
+
+## [Русская версия](./README_ru.md)
 
 This project created with CRA. Yarn start will help you =)
 
