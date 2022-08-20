@@ -5,13 +5,13 @@
 There are few things you better look throw in effector and patronum docs :
 
 1) [Events](https://effector.dev/docs/api/effector/event)  
-2) [Stores](https://effector.dev/docs/api/effector/store)   
+2) [Stores](https://effector.dev/docs/api/effector/store)
 3) [Patronum](https://github.com/effector/patronum)
 
 Let's start our journey with a small component.
 Usually for similar logic you better use hooks, but for learning we are going to use effector instead.
 
-### Task:
+### Task
 
 1) Create a component with stars.
 2) Stars must change their color when we hover them.
@@ -28,13 +28,13 @@ Usually for similar logic you better use hooks, but for learning we are going to
 
 ```ts
 export const $hover = createStore<number>(0, {
-    name: 'hover'
+  name: 'hover'
 })
 ```
 
 ### Second step
 
-Now it's time to create an event by [createEvent](https://effector.dev/docs/api/effector/createEvent).   
+Now it's time to create an event by [createEvent](https://effector.dev/docs/api/effector/createEvent).
 Simply speaking, event is a function with or without payload. Events work as triggers to start chain of actions.
 TS will help us to understand do we need payload or not. I gave a payload as a number and now, when I'm going to use
 this event, it's waiting for payload as a number.
@@ -57,7 +57,7 @@ underscore ('_')
 When we call setHoveredRating with some payload, our store will change. You can do any logic as you wish, but remember
 our callback MUST BE A PURE FUNCTION.
 
-**Better to know**
+### Better to know
 
 1) If you trigger any event with the same payload (``if oldState === payload from event``),state will NOT change and
    will
@@ -83,5 +83,3 @@ It's much easier to use [debug](https://github.com/effector/patronum/tree/main/s
 ### Congratulation. Now, you can start this project and check, how it works!
 
 Don't blame me about css, >_<
-
-

@@ -18,15 +18,15 @@ Let's find out how it works.
 
 ```ts
 export const $appProcess = createStore<AppProcess>(AppProcess.LOADING, {
-    name: '$appProcess'
+  name: '$appProcess'
 })
 
 $appProcess
-    .on(combinedFetchingEvent, () => AppProcess.IDLE)
-    .on(sendFeedbackFx, () => AppProcess.LOADING)
-    .on(sendFeedbackFx.done, () => AppProcess.SUCCESS)
-    .on([sendFeedbackFx.fail, getFilmDataFx.fail, getFilmPosterFx.fail], () => AppProcess.FAIL)
-    .reset(AppGate.close)
+  .on(combinedFetchingEvent, () => AppProcess.IDLE)
+  .on(sendFeedbackFx, () => AppProcess.LOADING)
+  .on(sendFeedbackFx.done, () => AppProcess.SUCCESS)
+  .on([sendFeedbackFx.fail, getFilmDataFx.fail, getFilmPosterFx.fail], () => AppProcess.FAIL)
+  .reset(AppGate.close)
 ```
 
 ## That's all

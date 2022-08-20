@@ -1,6 +1,6 @@
 # Sending data, split events
 
-### Before we start
+## Before we start
 
 There is a few things you better look throw in effector and patronum docs :
 
@@ -10,7 +10,7 @@ There is a few things you better look throw in effector and patronum docs :
 
 ### Practice makes perfect
 
-### Task:
+### Task
 
 1) Send data to API (or mock API)
 2) Reset stores
@@ -22,33 +22,32 @@ There is a few things you better look throw in effector and patronum docs :
 
 You know this guy - [Effect](https://effector.dev/docs/api/effector/createEffect), and in this part we are going to use
 it for some dirty thing as sending data. Mocked with
-Promise.   
+Promise.
 isReject is our bro to help us later to show how to work with done/fail effect methods.
 Sometimes it's helpful when you use destructuring arguments to pass data in sample from source to target.
 
 ```ts
 export const sendFeedbackFx = createEffect(async ({text, rating, id, isReject}: Feedback) => {
-    return new Promise((resolve, reject) => {
-        console.log(text, rating, id)
-        if (isReject) {
-            setTimeout(reject, 500)
-        } else {
-            setTimeout(resolve, 500)
-        }
-    }).then(() => {
-        return 'Feedback was sent!'
-    }).catch(() => {
-        return 'Feedback was not sent!'
-    })
+  return new Promise((resolve, reject) => {
+    console.log(text, rating, id)
+    if (isReject) {
+        setTimeout(reject, 500)
+    } else {
+        setTimeout(resolve, 500)
+    }
+  }).then(() => {
+    return 'Feedback was sent!'
+  }).catch(() => {
+    return 'Feedback was not sent!'
+  })
 })
-
 ```
 
 I created a few events, stores for textarea and badge. $badge contains title and color for dynamic changing info to
 communicate with user.
 Nothing new, won't stop here.
 
-## Clear them all...
+## Clear them all
 
 I added a new thing - [reset for  stores](https://effector.dev/docs/api/effector/store#resettriggersarray).
 This helps to reset stores value to default (initial) state.
@@ -70,23 +69,19 @@ Workflow:
 3) resetRatingStores and resetFormStores triggers reset methods for stores
 
 ```ts
-
 const resetFormStores = createEvent();
 const resetRatingStores = createEvent();
 
 const $rating = createStore(0).reset(resetRatingStores)
 const $feedbackText = createStore('').reset(resetFormStores)
 
-
 sample({
-    clock: sendFeedbackFx,
-    target: [resetRatingStores, resetFormStores]
+  clock: sendFeedbackFx,
+  target: [resetRatingStores, resetFormStores]
 })
-
-
 ```
 
-## [Split](https://effector.dev/docs/api/effector/split/) your work flow!
+## [Split](https://effector.dev/docs/api/effector/split/) your work flow
 
 Look, when you need conditional logic it's better to use [Split](https://effector.dev/docs/api/effector/split/).
 Two important objects in split. Matches and cases - you must name methods equals. In matches object you do some checking
@@ -102,20 +97,18 @@ How it works here?
 5) Method sendSuccess returns true, it means method sendSuccess in cases object will be triggered.
 
 ```ts
-
 split({
-    clock: sendFeedback,
-    source: $rating,
-    match: {
-        sendSuccess: (rating) => Boolean(rating),
-        sendFail: (rating) => !Boolean(rating),
-    },
-    cases: {
-        sendSuccess: sendSuccessEvent,
-        sendFail: sendFailEvent,
-    }
+  clock: sendFeedback,
+  source: $rating,
+  match: {
+    sendSuccess: (rating) => Boolean(rating),
+    sendFail: (rating) => !Boolean(rating),
+  },
+  cases: {
+    sendSuccess: sendSuccessEvent,
+    sendFail: sendFailEvent,
+  }
 })
-
 ```
 
 ## Sending data
@@ -150,21 +143,21 @@ targets: { fnResult: { text: string; id: number; isReject: boolean; }; targetTyp
 
 ```ts
 sample({
-    clock: sendSuccess,
-    source: {
-        rating: $rating,
-        feedback: $feedbackText,
-        film: $film,
-    },
-    fn: ({feedback, rating, film}) => {
-        return {
-            text: feedback,
-            id: film!.id,
-            rating,
-            isReject: false
-        }
-    },
-    target: sendFeedbackFx
+  clock: sendSuccess,
+  source: {
+    rating: $rating,
+    feedback: $feedbackText,
+    film: $film,
+  },
+  fn: ({ feedback, rating, film }) => {
+    return {
+      text: feedback,
+      id: film!.id,
+      rating,
+      isReject: false
+    }
+  },
+  target: sendFeedbackFx
 })
 ```
 
@@ -182,15 +175,14 @@ When any of these stores changes, it will run this
 
 ```ts
 sample({
-    source: {
-        rating: $rating,
-        hovered: $hover,
-    },
-    filter: ({rating}) => !rating,
-    fn: ({hovered}) => BADGE_INFO[hovered],
-    target: $badge,
+  source: {
+    rating: $rating,
+    hovered: $hover,
+  },
+  filter: ({ rating }) => !rating,
+  fn: ({ hovered }) => BADGE_INFO[hovered],
+  target: $badge,
 });
-
 
 ```
 
@@ -200,28 +192,25 @@ This one
 
 ```ts
 filter: Boolean,
-``` 
+```
 
 is the same
 
 ```ts
-filter:(rating) => Boolean(rating),
-``` 
+filter: (rating) => Boolean(rating),
+```
 
 But you can use it only when you have only one clock or one source to check exactly their payload. If this Boolean(
 payload from clock/source) => true => fn and target will run.
 
-```ts 
+```ts
 sample({
-    source: $rating,
-    filter: Boolean,
-    fn: (rating) => BADGE_INFO[rating],
-    target: $badge,
+  source: $rating,
+  filter: Boolean,
+  fn: (rating) => BADGE_INFO[rating],
+  target: $badge,
 });
-
-
 ```
 
 You can rewrite these two [Sample](https://effector.dev/docs/api/effector/sample) above for split and events, but in
 would be with more code and so hard for lazy guy as me.
-
