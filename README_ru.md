@@ -26,5 +26,3 @@
 2) **effector/lesson-two-effects-api** - запрашиваем данные с сервера и обрабатываем их.
 3) **effector/lesson-three-samples** - отправляем код на сервер и сплитим код.
 4) **effector/lesson-four-process** - в этом уроке разберем как управлять состоянием страницы.
-
-

@@ -25,5 +25,3 @@ In last branch it will be a completed feature with conditions/data fetching/ spl
 2) **effector/lesson-two-effects-api** - fetching and handlering data.
 3) **effector/lesson-three-samples** - sending data/ split code.
 4) **effector/lesson-four-process** - how can we handle process for page.
-
-
