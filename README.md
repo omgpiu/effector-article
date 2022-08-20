@@ -17,7 +17,7 @@ In last branch it will be a completed feature with conditions/data fetching/ spl
 1) [LessonOne](src/LessonOne/README.md)
 2) [LessonTwo](src/LessonTwo/README.md)
 3) [LessonThree](src/LessonThree/README.md)
-3) [LessonFour](src/LessonFour/README.md)
+4) [LessonFour](src/LessonFour/README.md)
 
 ### Branches
 
