@@ -1,6 +1,6 @@
 # Effects, Samples, Gate, Restore and adding logic in stores
 
-### Before we get into it
+## Before we get into it
 
 There are few things you better look throw in effector and patronum docs :
 
@@ -14,7 +14,7 @@ LessonTwo provides information how we can fetch data, subscribe for opening page
 Also, I will show how solve some issues with [Effector](https://effector.dev) and easiest way
 with [Patronum](https://github.com/effector/patronum).
 
-## Task:
+## Task
 
 1) Fetch data from different API
 2) Combine fetched data
@@ -37,8 +37,8 @@ effect and result, pending returns true/false, fail again returns arguments and 
 
 ```ts
 export const getFilmPosterFx = createEffect<void, FilmPosterRaw>(async () => {
-    const req = await fetch(POSTER_BASE)
-    return req.json()
+  const req = await fetch(POSTER_BASE)
+  return req.json()
 })
 
 ```
@@ -59,10 +59,11 @@ const someEventForTriggerAfterMounting = createEvent();
 const someEventForTriggerAfterUnmounting = createEvent();
 
 useEffect(() => {
-    someEventForTriggerAfterMounting()
-    return () => {
-        someEventForTriggerAfterUnmounting()
-    }
+  someEventForTriggerAfterMounting()
+
+  return () => {
+    someEventForTriggerAfterUnmounting()
+  }
 }, [])
 ```
 
@@ -91,14 +92,14 @@ arguments,or your arguments same, you can use Array with effects to run them.
 
 ```ts
 sample({
-    clock: FilmGate.open,
-    target: [getFilmDataFx, getFilmPosterFx]
+  clock: FilmGate.open,
+  target: [getFilmDataFx, getFilmPosterFx]
 })
 
 
 ```
 
-## Oh, stores, more stores, I like store's, and you will...
+## Oh, stores, more stores, I like store's, and you will
 
 As you see, I added stores with [Restore](https://effector.dev/docs/api/effector/restore).
 I used it for fill my stores with data with less code.
@@ -113,7 +114,6 @@ import { createStore } from "effector";
 const $filmRawData = createStore<FilmRaw>(null)
 
 $filmRawData.on(getFilmDataFx.doneData, (_, payload) => payload)
-
 ```
 
 or do this
@@ -147,30 +147,28 @@ It works like this:
 2) When $filmRawData or $posterRawData changed combine will run =>
 3) According logic inside it returns what you need
 
-In my case It returns data or null.    
+In my case It returns data or null.
 **[Combine](https://effector.dev/docs/api/effector/combine) will run every time when one of these store changed.**
 
 ```ts
 export const $film = combine($filmRawData, $posterRawData, (film, poster) => {
-    if (film && poster) {
-        const title = film.Title
-        const posterByTitle = poster.results.find(e => e.original_title === title)!
-        return {
-            title,
-            img: 'https://image.tmdb.org/t/p/w200' + posterByTitle.poster_path,
-            year: film.Year,
-            popularity: posterByTitle.popularity,
-            language: film.Language,
-            overview: posterByTitle.overview
-        }
+  if (film && poster) {
+    const title = film.Title
+    const posterByTitle = poster.results.find(e => e.original_title === title)!
+    return {
+      title,
+      img: 'https://image.tmdb.org/t/p/w200' + posterByTitle.poster_path,
+      year: film.Year,
+      popularity: posterByTitle.popularity,
+      language: film.Language,
+      overview: posterByTitle.overview
     }
-    return null
+  }
+  return null
 })
-
-
 ```
 
-### Don't trigger [Effect](https://effector.dev/docs/api/effector/effect) from UI.
+### Don't trigger [Effect](https://effector.dev/docs/api/effector/effect) from UI
 
 **All data from events/effects will provide to next unit automatically.**
 
@@ -184,19 +182,16 @@ import { createEvent, sample } from "effector";
 
 const myEvent = createEvent<string>()
 const myEffectFx = createEffect(async (id: string) => {
-    const req = await fetch(`some.web.site/${id}`)
-    return req.json()
+  const req = await fetch(`some.web.site/${id}`)
+  return req.json()
 })
 
 myEvent('card_id-4')
 
 sample({
-    clock: myEvent,
-    target: myEffectFx
+  clock: myEvent,
+  target: myEffectFx
 })
-
-
-
 ```
 
 ## Patronum Game - [Pending](https://github.com/effector/patronum#pending), [combineEvents](https://github.com/effector/patronum#combineevents)
@@ -228,26 +223,26 @@ has method fail), it means no need to check do we have data or not.
 export const $film = createStore<Film | null>(null)
 
 const event = combineEvents({
-    events: {
-        film: getFilmDataFx.doneData,
-        poster: getFilmPosterFx.doneData
-    },
+  events: {
+    film: getFilmDataFx.doneData,
+    poster: getFilmPosterFx.doneData
+  },
 })
 
 sample({
-    clock: event,
-    fn: ({film, poster}) => {
-        const title = film.Title
-        const posterByTitle = poster.results.find(e => e.original_title === title)!
-        return {
-            title,
-            img: 'https://image.tmdb.org/t/p/w200' + posterByTitle.poster_path,
-            year: film.Year,
-            popularity: posterByTitle.popularity,
-            language: film.Language,
-            overview: posterByTitle.overview
-        }
-    },
-    target: $film,
+  clock: event,
+  fn: ({ film, poster }) => {
+    const title = film.Title
+    const posterByTitle = poster.results.find(e => e.original_title === title)!
+    return {
+      title,
+      img: 'https://image.tmdb.org/t/p/w200' + posterByTitle.poster_path,
+      year: film.Year,
+      popularity: posterByTitle.popularity,
+      language: film.Language,
+      overview: posterByTitle.overview
+    }
+  },
+  target: $film,
 })
 ```

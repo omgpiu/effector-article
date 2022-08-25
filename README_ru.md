@@ -5,7 +5,7 @@
 Проект собран на CRA. Чтобы запустить пропиши в консоли yarn start
 
 Основные библиотеки:  
-``1) effector - сам виновник торжества ``  
+``1) effector - сам виновник торжества``  
 ``2) effector/react - чтобы законнектить эффектор к реакту``  
 ``3) patronum - много нужных тулзовин для эффектора``
 
@@ -18,7 +18,7 @@
 1) [Урок первый](src/LessonOne/README_ru.md)
 2) [Урок второй](src/LessonTwo/README.md)
 3) [Урок третий](src/LessonThree/README.md)
-3) [Урок четвертый](src/LessonFour/README.md)
+4) [Урок четвертый](src/LessonFour/README.md)
 
 ### Ветки
 
@@ -26,5 +26,3 @@
 2) **effector/lesson-two-effects-api** - запрашиваем данные с сервера и обрабатываем их.
 3) **effector/lesson-three-samples** - отправляем код на сервер и сплитим код.
 4) **effector/lesson-four-process** - в этом уроке разберем как управлять состоянием страницы.
-
-
