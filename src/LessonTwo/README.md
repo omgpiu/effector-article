@@ -75,6 +75,14 @@ import { createGate } from "effector-react";
 const SomeGate = createGate('Somegate')
 
 useGate(SomeGate)
+
+
+//some where in model.ts
+
+sample({
+   clock:SomeGate.open,
+   target:someEvent
+})
 ```
 
 And now we have methods SomeGate.open/SomeGate.close/SomeGate.status/SomeGate.state.
@@ -134,8 +142,8 @@ Ok, I need combined data from $filmRawData and $posterRawData.
 
 1) create variable $film
 2) use [Combine](https://effector.dev/docs/api/effector/combine)
-3) pass stores for combine $filmRawData and $posterRawData
-4) pass func as third argument
+3) pass stores for combine $filmRawData and $posterRawData in array as first argument
+4) pass func as second argument
 5) arguments in this func are my stores which I passed before.
 6) [Combine](https://effector.dev/docs/api/effector/combine) is a sync func, and I must check do I have data in my stores, if not ,return null and my $film will be store
    with data === null
