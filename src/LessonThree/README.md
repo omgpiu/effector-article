@@ -92,9 +92,7 @@ How it works here?
 1) Somewhere I trigger sendFeedback event.
 2) Also, I take $rating as a source.
 3) In match object I created two methods for checking is rating more 0?
-4) If rating not equals 0, that means in case object split will trigger method with the same name as in the match
-   object.
-5) Method sendSuccess returns true, it means method sendSuccess in cases object will be triggered.
+4) Method sendSuccess returns true, it means method sendSuccess in cases object will be triggered.
 
 ```ts
 split({

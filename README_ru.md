@@ -17,7 +17,7 @@
 
 1) [Урок первый](src/LessonOne/README_ru.md)
 2) [Урок второй](src/LessonTwo/README_ru.md)
-3) [Урок третий](src/LessonThree/README.md)
+3) [Урок третий](src/LessonThree/README_ru.md)
 4) [Урок четвертый](src/LessonFour/README.md)
 
 ### Ветки
