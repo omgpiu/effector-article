@@ -7,7 +7,7 @@ interface ResultBlankProps {
   type: Extract<AppProcess, AppProcess.FAIL | AppProcess.SUCCESS>
 }
 
-const bla = {
+const map = {
   [AppProcess.FAIL]: {
     text: 'Something went wrong',
     img: ErrorImg,
@@ -19,7 +19,7 @@ const bla = {
 }
 
 export const ResultBlank = ({ type }: ResultBlankProps) => {
-  const { text, img } = bla[type]
+  const { text, img } = map[type]
   return (
     <div className={st.container}>
       <img src={img} alt={text} />
