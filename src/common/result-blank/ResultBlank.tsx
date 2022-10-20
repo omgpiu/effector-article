@@ -4,7 +4,7 @@ import st from './result-blank.module.css'
 import { Button } from '../button/Button'
 
 interface ResultBlankProps {
-  type: Extract<AppProcess, AppProcess.FAIL | AppProcess.SUCCESS>
+  type: Omit<AppProcess, AppProcess.FAIL | AppProcess.SUCCESS>
 }
 
 const bla = {
